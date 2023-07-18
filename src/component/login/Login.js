@@ -9,6 +9,7 @@ function Login() {
   function loginSubmit(e) {
     e.preventDefault();
     const data = new FormData(e.target);
+    console.log(data);
     formpost("/api/login", data)
       .then((response) => {
         if (response) {
@@ -36,165 +37,85 @@ function Login() {
   }
 
   return (
-    // <div className="hold-transition login-page">
-    //   <div className="login-box">
-    //     <div className="login-logo">
-    //       <a href="../../index2.html">
-    //         <b>Admin</b>LTE
-    //       </a>
-    //     </div>
-    //     <div className="card">
-    //       <div className="card-body login-card-body">
-    //         <p className="login-box-msg">Sign in to start your session</p>
+    <div className="wrapper">
+		<div className="section-authentication-cover">
+			<div className="">
+				<div className="row g-0">
 
-    //         <form onSubmit={loginSubmit}>
-    //           <div className="input-group mb-3">
-    //             <input type="email" className="form-control" placeholder="Email" name="email" id="email"/>
-    //             <div className="input-group-append">
-    //               <div className="input-group-text">
-    //                 <span className="fas fa-envelope"></span>
-    //               </div>
-    //             </div>
-    //           </div>
-    //           <div className="input-group mb-3">
-    //             <input
-    //               type="password"
-    //               className="form-control"
-    //               placeholder="Password" name="password" id="password"
-    //             />
-    //             <div className="input-group-append">
-    //               <div className="input-group-text">
-    //                 <span className="fas fa-lock"></span>
-    //               </div>
-    //             </div>
-    //           </div>
-    //           <div className="row">
-    //             <div className="col-8">
-    //               <div className="icheck-primary">
-    //                 <input type="checkbox" id="remember" />
-    //                 <label htmlFor="remember">Remember Me</label>
-    //               </div>
-    //             </div>
+					<div className="col-12 col-xl-7 col-xxl-8 auth-cover-left align-items-center justify-content-center d-none d-xl-flex">
 
-    //             <div className="col-4">
-    //               <button type="submit" className="btn btn-primary btn-block">
-    //                 Sign In
-    //               </button>
-    //             </div>
-    //           </div>
-    //         </form>
+                        <div className="card shadow-none bg-transparent shadow-none rounded-0 mb-0">
+							<div className="card-body">
+                                 <img src="assets/images/login-images/login-cover.svg" className="img-fluid auth-img-cover-login" width="650" alt=""/>
+							</div>
+						</div>
+						
+					</div>
 
-    //         <div className="social-auth-links text-center mb-3">
-    //           <p>- OR -</p>
-    //           <a href="#" className="btn btn-block btn-primary">
-    //             <i className="fab fa-facebook mr-2"></i> Sign in using Facebook
-    //           </a>
-    //           <a href="#" className="btn btn-block btn-danger">
-    //             <i className="fab fa-google-plus mr-2"></i> Sign in using Google+
-    //           </a>
-    //         </div>
+					<div className="col-12 col-xl-5 col-xxl-4 auth-cover-right align-items-center justify-content-center">
+						<div className="card rounded-0 m-3 shadow-none bg-transparent mb-0">
+							<div className="card-body p-sm-5">
+								<div className="">
+									<div className="mb-3 text-center">
+										<img src="assets/images/logo-icon.png" width="60" alt=""/>
+									</div>
+									<div className="text-center mb-4">
+										<h5 className="">Rocker Admin</h5>
+										<p className="mb-0">Please log in to your account</p>
+									</div>
+									<div className="form-body">
+										<form className="row g-3" onSubmit={loginSubmit}>
+											<div className="col-12">
+												<label htmlFor="enail" className="form-label">Email</label>
+												<input type="email" className="form-control" id="enail" name="email" placeholder="jhon@example.com"/>
+											</div>
+											<div className="col-12">
+												<label htmlFor="password" className="form-label">Password</label>
+												<div className="input-group" id="show_hide_password">
+													<input type="password" className="form-control border-end-0" id="password" name="password" value="12345678" placeholder="Enter Password"/> <a href="javascript:;" className="input-group-text bg-transparent"><i className="bx bx-hide"></i></a>
+												</div>
+											</div>
+											<div className="col-md-6">
+												<div className="form-check form-switch">
+													<input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"/>
+													<label className="form-check-label" htmlFor="flexSwitchCheckChecked">Remember Me</label>
+												</div>
+											</div>
+											<div className="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+											</div>
+											<div className="col-12">
+												<div className="d-grid">
+													<button type="submit" className="btn btn-primary">Sign in</button>
+												</div>
+											</div>
+											<div className="col-12">
+												<div className="text-center ">
+													<p className="mb-0">Don't have an account yet? <a href="authentication-signup.html">Sign up here</a>
+													</p>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div className="login-separater text-center mb-5"> <span>OR SIGN IN WITH</span>
+										<hr/>
+									</div>
+									<div className="list-inline contacts-social text-center">
+										<a href="javascript:;" className="list-inline-item bg-facebook text-white border-0 rounded-3"><i className="bx bxl-facebook"></i></a>
+										<a href="javascript:;" className="list-inline-item bg-twitter text-white border-0 rounded-3"><i className="bx bxl-twitter"></i></a>
+										<a href="javascript:;" className="list-inline-item bg-google text-white border-0 rounded-3"><i className="bx bxl-google"></i></a>
+										<a href="javascript:;" className="list-inline-item bg-linkedin text-white border-0 rounded-3"><i className="bx bxl-linkedin"></i></a>
+									</div>
 
-    //         <p className="mb-1">
-    //           <a href="forgot-password.html">I forgot my password</a>
-    //         </p>
-    //         <p className="mb-0">
-    //           <a href="register.html" className="text-center">
-    //             Register a new membership
-    //           </a>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-    <>
-    
-    <section className="log-in-section background-image-2 section-b-space">
-        <div className="container-fluid-lg w-100">
-            <div className="row">
-                <div className="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
-                    <div className="image-contain">
-                        <img src={`${CONSTANT.HOMEURL}/front/assets/images/inner-page/log-in.png`} className="img-fluid" alt=""/>
-                    </div>
-                </div>
-
-                <div className="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
-                    <div className="log-in-box">
-                        <div className="log-in-title">
-                            <h3>Welcome To Fastkart</h3>
-                            <h4>Log In Your Account</h4>
-                        </div>
-
-                        <div className="input-box">
-                            <form className="row g-4">
-                                <div className="col-12">
-                                    <div className="form-floating theme-form-floating log-in-form">
-                                        <input type="email" className="form-control" id="email" placeholder="Email Address"/>
-                                        <label htmlFor="email">Email Address</label>
-                                    </div>
-                                </div>
-
-                                <div className="col-12">
-                                    <div className="form-floating theme-form-floating log-in-form">
-                                        <input type="password" className="form-control" id="password"
-                                            placeholder="Password"/>
-                                        <label htmlFor="password">Password</label>
-                                    </div>
-                                </div>
-
-                                <div className="col-12">
-                                    <div className="forgot-box">
-                                        <div className="form-check ps-0 m-0 remember-box">
-                                            <input className="checkbox_animated check-box" type="checkbox"
-                                                id="flexCheckDefault"/>
-                                            <label className="form-check-label" htmlFor="flexCheckDefault">Remember me</label>
-                                        </div>
-                                        <a href="forgot.html" className="forgot-password">Forgot Password?</a>
-                                    </div>
-                                </div>
-
-                                <div className="col-12">
-                                    <button className="btn btn-animation w-100 justify-content-center" type="submit">Log
-                                        In</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div className="other-log-in">
-                            <h6>or</h6>
-                        </div>
-
-                        <div className="log-in-button">
-                            <ul>
-                                <li>
-                                    <a href="https://www.google.com/" className="btn google-button w-100">
-                                        <img src={`${CONSTANT.HOMEURL}/front/assets/images/inner-page/google.png`} className="blur-up lazyload"
-                                            alt=""/> Log In with Google
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.facebook.com/" className="btn google-button w-100">
-                                        <img src={`${CONSTANT.HOMEURL}/front/assets/images/inner-page/facebook.png`} className="blur-up lazyload"
-                                            alt=""/> Log In with Facebook
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="other-log-in">
-                            <h6></h6>
-                        </div>
-
-                        <div className="sign-up-box">
-                            <h4>Don't have an account?</h4>
-                            <a href="sign-up.html">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
   );
 }
