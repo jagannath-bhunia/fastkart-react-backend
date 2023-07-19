@@ -18,7 +18,8 @@ function Login() {
             // toast.error('invalid credentials!');
           } else {
             // toast.success('Login successful!');
-            console.log(response.data.user);
+            console.log(response.data);
+			// console.log(response.data.token);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("name", response.data.user.name);
             localStorage.setItem("user_id", response.data.user.id);
@@ -72,7 +73,8 @@ function Login() {
 											<div className="col-12">
 												<label htmlFor="password" className="form-label">Password</label>
 												<div className="input-group" id="show_hide_password">
-													<input type="password" className="form-control border-end-0" id="password" name="password" value="12345678" placeholder="Enter Password"/> <a href="javascript:;" className="input-group-text bg-transparent"><i className="bx bx-hide"></i></a>
+													<input type="password" className="form-control border-end-0" id="password" name="password" placeholder="Enter Password"/> 
+													<a href="javascript:;" className="input-group-text bg-transparent"><i className="bx bx-hide"></i></a>
 												</div>
 											</div>
 											<div className="col-md-6">
